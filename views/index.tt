@@ -1,0 +1,13 @@
+<div id="page">
+      <div id="sidebar"></div>
+      <div id="content">
+        <div id="header">
+          <h1>LSMB Admin Web Console</h1>
+          <h2>The Web App for Administering LedgerSMB Databases</h2>
+        </div>
+
+        <div id="login" class="main">
+        <h1>Please Login</h1>
+        </div>
+      </div>
+</div>
