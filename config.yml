@@ -18,14 +18,23 @@ charset: "UTF-8"
 # simple: default and very basic template engine
 # template_toolkit: TT
 
-template: "simple"
-
-# template: "template_toolkit"
-# engines:
-#   template_toolkit:
-#     start_tag: '[%'
-#     end_tag:   '%]'
+template: "template_toolkit"
+engines:
+  template_toolkit:
+     start_tag: '<?lsmb'
+     end_tag:   '?>'
 
 # For session support enable the following line and see Dancer::Session
 # session: "YAML"
+
+plugins:
+   Lexicon:
+      namespace: App::LedgerSMB::Admin::Web::I18N
+      func: "text"
+      param_name: lang
+      directory: I18N
+      lang_default: en
+      maketext_options:
+           Style: 'gettext'
+           Decode: 0
 
