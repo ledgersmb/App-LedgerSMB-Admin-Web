@@ -1,4 +1,6 @@
 <div id="page">
+      <script src="<?lsmb request.uri_base ?>/javascripts/login.js" 
+        language="javascript"  type="text/javascript"></script>
       <div id="sidebar"></div>
       <div id="content">
         <div id="header">
@@ -9,7 +11,7 @@
         </div>
         <div id="login" class="main">
            <h1><?lsmb text('Please Login') ?></h1>
-           <div class="tabular">
+           <div class="standard">
            <div class="row">
               <div class="label"><?lsmb text('Username') ?></div>
               <div class="input">
@@ -40,7 +42,7 @@
            </div>
            <div class="row">
               <div class="button"><button class="submit" 
-                   _onClick="_login()"><?lsmb text('Login') ?></button></div>
+                   id="loginbtn"><?lsmb text('Login') ?></button></div>
            </div>
         </div>
       </div>
