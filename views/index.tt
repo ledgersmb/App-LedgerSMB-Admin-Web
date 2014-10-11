@@ -9,8 +9,38 @@
         </div>
         <div id="login" class="main">
            <h1><?lsmb text('Please Login') ?></h1>
-           <div class="form-1">
+           <div class="tabular">
+           <div class="row">
               <div class="label"><?lsmb text('Username') ?></div>
+              <div class="input">
+                  <input type="text" name="username" id="username" size="20"
+                         value="" class="username">
+              </div>
+           </div>
+           <div class="row"> 
+              <div class="label"><?lsmb text('Password') ?></div>
+              <div class="input">
+                  <input type="password" name="password" id="password" size="20"
+                         value="" class="password">
+              </div>
+           </div>
+           <div class="row"> 
+              <div class="label"><?lsmb text('Host') ?></div>
+              <div class="input">
+                  <input type="text" name="host" id="host" size="20"
+                         value="" class="host">
+              </div>
+           </div>
+           <div class="row"> 
+              <div class="label"><?lsmb text('Port') ?></div>
+              <div class="input">
+                  <input type="text" name="port" id="port" size="20"
+                         value="5432" class="host">
+              </div>
+           </div>
+           <div class="row">
+              <div class="button"><button class="submit" 
+                   _onClick="_login()"><?lsmb text('Login') ?></button></div>
            </div>
         </div>
       </div>
