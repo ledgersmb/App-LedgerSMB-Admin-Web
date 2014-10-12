@@ -2,6 +2,8 @@ package App::LedgerSMB::Admin::Database::Routings;
 use Dancer ':syntax';
 use Dancer::Serializer;
 use Dancer::Plugin::Ajax;
+use App::LedgerSMB::Admin::Web::Auth;
+use App::LedgerSMB::Admin::Database;
 use Template;
 
 =head1 NAME
@@ -48,7 +50,7 @@ So the database list would be found at
 =cut
 
 get  '/:host/:port/dbs'     => sub { template 'dblist'  => _list_dbs() };
-ajax  '/:host/:port/dbs'    => sub { to_json(_lsmb_dbs()) };
+ajax  '/:host/:port/dbs'    => sub { to_json(_list_dbs()) };
 get  '/:host/:port/new'     => sub { template 'new_db'  => {} };
 post '/:host/:port/new'     => sub { template 'db_info' => _createdb() };
 ajax  '/:host/:port/new'    => sub { to_json(createdb()) };
@@ -76,7 +78,7 @@ sub _list_dbs {
               port   => param('port'),
               dbname => 'postgres'
     );
-    return $db->list_dbs;
+    return [$db->list_dbs];
 }
 
 sub _createdb {
