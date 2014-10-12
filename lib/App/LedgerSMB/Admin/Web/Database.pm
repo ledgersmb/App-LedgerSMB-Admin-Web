@@ -73,13 +73,12 @@ post '/:host/:port/db/:dbname/backup/*.*' => \&_restore_backup;
 
 
 sub _list_dbs {
-    warn 'listing dbs';
     my $db = authenticate(
               host   => param('host'), 
               port   => param('port'),
               dbname => 'postgres'
     );
-    return $db->list_dbs;
+    return [$db->list_dbs];
 }
 
 sub _createdb {
