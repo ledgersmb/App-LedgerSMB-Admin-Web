@@ -4,13 +4,16 @@ App::LedgerSMB::Admin::Auth - Authenticate Web Users for LSMB Admin Tasks
 
 =cut
 
-package App::LedgerSMB::Admin::Auth;
+package App::LedgerSMB::Admin::Web::Auth;
 use Dancer ':syntax';
 use Dancer::Response;
 use HTTP::Headers;
 use MIME::Base64;
 use strict;
 use warnings;
+
+use base 'Exporter';
+our @EXPORT=qw(authenticate);
 
 =head1 SYNOPSIS
 

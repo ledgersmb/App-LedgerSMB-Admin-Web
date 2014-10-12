@@ -2,6 +2,8 @@ package App::LedgerSMB::Admin::Database::Routings;
 use Dancer ':syntax';
 use Dancer::Serializer;
 use Dancer::Plugin::Ajax;
+use App::LedgerSMB::Admin::Web::Auth;
+use App::LedgerSMB::Admin::Database;
 use Template;
 
 =head1 NAME
