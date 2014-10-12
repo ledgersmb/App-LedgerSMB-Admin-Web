@@ -2,13 +2,26 @@
   display: table;
 }
 
-.tabular .row {
+.tabular > .row {
   display: table-row;
 }
 
-.tabular .row div {
+.tabular > .row > div {
   display: table-cell;
+  margin: 3px;
+  padding: 2px;
 }
+
+.tabular > .row:nth-child(odd){
+  background: LightGray;
+}
+
+.tabular > .tableheading:nth-child(1) {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
 
 body {
 margin: 0;
