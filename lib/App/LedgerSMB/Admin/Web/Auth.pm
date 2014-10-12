@@ -38,7 +38,9 @@ This is to prevent using the tool to scan for db servers for further attacks.
 sub authenticate {
     my %args = @_;
     my $header = request->header('Authorization');
-    my ($user, $password) = split(/:/, (MIME::Base64::decode($1) || ":"));
+    return _fail_auth() unless $header;
+    $header =~ s/Basic //;
+    my ($user, $password) = split(/:/, (MIME::Base64::decode($header) || ":"));
     return _fail_auth() unless $user;
     my $db = App::LedgerSMB::Admin::Database->new(%args,
                                                   username => $user,
