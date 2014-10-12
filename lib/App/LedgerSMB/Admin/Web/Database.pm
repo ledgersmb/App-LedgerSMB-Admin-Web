@@ -49,7 +49,9 @@ So the database list would be found at
 
 =cut
 
-get  '/:host/:port/dbs'     => sub { template 'dblist'  => _list_dbs() };
+get  '/:host/:port/dbs'     => sub { template 'dblist'  => { 
+                                                   databases => _list_dbs() } 
+                                   };
 ajax  '/:host/:port/dbs'    => sub { to_json(_list_dbs()) };
 get  '/:host/:port/new'     => sub { template 'new_db'  => {} };
 post '/:host/:port/new'     => sub { template 'db_info' => _createdb() };
