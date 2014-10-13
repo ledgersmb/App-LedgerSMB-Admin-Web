@@ -88,7 +88,7 @@ sub _db_info {
               port   => param('port'),
               dbname => param('dbname'),
     );
-    return $db->stats;
+    return { stats => $db->stats, dbname => param('dbname') };
 }
 
 sub _createdb {
