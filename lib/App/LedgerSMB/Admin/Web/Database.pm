@@ -65,11 +65,10 @@ ajax '/:host/:port/globals' => sub { to_json(_restore_globals()) };
 =cut
 
 get  '/:host/:port/db/:dbname/' => sub { template 'db_info' => _db_info(); };
-post '/:host/:port/db/:dbname/' => \&_reload_db;
-put  '/:host/:port/db/:dbname/' => \&_reload_db;
-put  '/:host/:port/db/:dbname/*.sql' => \&_run_file;
+ajax '/:host/:port/db/:dbname/' => sub { to_json(_db_info()) };
+put  '/:host/:port/db/:dbname/rebuild/' => \&_reload_db;
 post '/:host/:port/db/:dbname/*.sql' => \&_run_file;
-get  '/:host/:port/db/:dbname/backup/*.*' => \&_backup_db;
+get  '/:host/:port/db/:dbname/backup/' => \&_backup_db;
 put  '/:host/:port/db/:dbname/backup/*.*' => \&_restore_backup;
 post '/:host/:port/db/:dbname/backup/*.*' => \&_restore_backup;
 
@@ -81,6 +80,15 @@ sub _list_dbs {
               dbname => 'postgres'
     );
     return [$db->list_dbs];
+}
+
+sub _db_info {
+    my $db = authenticate(
+              host   => param('host'), 
+              port   => param('port'),
+              dbname => param('dbname'),
+    );
+    return $db->stats;
 }
 
 sub _createdb {
