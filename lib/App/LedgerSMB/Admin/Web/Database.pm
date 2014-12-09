@@ -1,6 +1,7 @@
 package App::LedgerSMB::Admin::Database::Routings;
 use Dancer ':syntax';
 use Dancer::Serializer;
+use Dancer::Response;
 use Dancer::Plugin::Ajax;
 use App::LedgerSMB::Admin::Web::Auth;
 use App::LedgerSMB::Admin::Database;
@@ -68,7 +69,7 @@ get  '/:host/:port/db/:dbname/' => sub { template 'db_info' => _db_info(); };
 ajax '/:host/:port/db/:dbname/' => sub { to_json(_db_info()) };
 put  '/:host/:port/db/:dbname/rebuild/' => \&_reload_db;
 post '/:host/:port/db/:dbname/*.sql' => \&_run_file;
-get  '/:host/:port/db/:dbname/backup/' => \&_backup_db;
+get  '/:host/:port/db/:dbname/backup' => \&_backup_db;
 put  '/:host/:port/db/:dbname/backup/*.*' => \&_restore_backup;
 post '/:host/:port/db/:dbname/backup/*.*' => \&_restore_backup;
 
@@ -115,6 +116,16 @@ sub _reload_db {
 }
 
 sub _backup_db {
+    my $db = authenticate(
+              host   => param('host'), 
+              port   => param('port'),
+              dbname => param('dbname'),
+    );
+    my $tmpfile = $db->backup(format => 'c');
+    return send_file($tmpfile, system_path => 1, 
+                              content_type => 'application/octet-stream',
+                              filename     =>  'backup-' . param('dbname') 
+                                               . 'sqlc');
 }
 
 sub _restore_db {

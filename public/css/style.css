@@ -12,7 +12,7 @@
   padding: 2px;
 }
 
-.tabular > .row:nth-child(odd){
+.tabular > .row:nth-child(odd), .tablebody > .row:nth-child(odd) {
   background: LightGray;
 }
 

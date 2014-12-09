@@ -1,20 +1,30 @@
 <div id="page">
-<div id="sidebar">
+<div id="sidebar" class="sidebar">
+<div id="newform">
+</div>
+<div id="backuplink"><h2><a href="backup"><?lsmb text('Back Up') ?></a></h2>
+</div>
+<div id="reloadlink"><h2><a href="reload"><?lsmb text('Reload') ?></a></h2>
+</div>
+<div id="scriptlink"><h2><a href="..."><?lsmb text('Run Script') ?></a></h2>
+</div>
+<div id="logoutlink"><h2><a href="../../logout"><?lsmb text('Logout') ?></a></h2>
+</div>
 </div>
 <div id="content">
 <div id="header">
 <h1><?lsmb text('Database Statistics for [_1]', dbname) ?></h1>
 </div>
-<table>
-<thead>
-<tr>
+<table class="tabular" width="100%">
+<thead class="tableheading">
+<tr class="row tableheading">
   <th><?lsmb text('Table name') ?></th>
   <th><?lsmb text('Row count') ?></th>
 </th>
 </thead>
-<tbody>
+<tbody class="tablebody">
 <?lsmb FOREACH t IN ['ar', 'ap', 'gl', 'acc_trans', 'oe', 'users'] ?>
-<tr><th><?lsmb t ?></th><td><?lsmb stats.t ?></td></tr>
+<tr class="row"><th><?lsmb t ?></th><td><?lsmb stats.$t ?></td></tr>
 <?lsmb END ?>
 </tbody>
 </div>
