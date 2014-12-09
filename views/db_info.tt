@@ -1,0 +1,21 @@
+<div id="page">
+<div id="sidebar">
+</div>
+<div id="content">
+<div id="header">
+<h1><?lsmb text('Database Statistics for [_1]', dbname) ?></h1>
+</div>
+<table>
+<thead>
+<tr>
+  <th><?lsmb text('Table name') ?></th>
+  <th><?lsmb text('Row count') ?></th>
+</th>
+</thead>
+<tbody>
+<?lsmb FOREACH t IN ['ar', 'ap', 'gl', 'acc_trans', 'oe', 'users'] ?>
+<tr><th><?lsmb t ?></th><td><?lsmb stats.t ?></td></tr>
+<?lsmb END ?>
+</tbody>
+</div>
+</div>
