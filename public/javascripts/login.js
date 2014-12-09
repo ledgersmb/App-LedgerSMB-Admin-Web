@@ -6,7 +6,7 @@ $(document).ready(
       var password = document.getElementById('password').value;
       var host     = document.getElementById('host').value;
       var port     = document.getElementById('port').value;
-      var url      = host + '/' + port + '/dbs';
+      var url      = '/lsmbadmin/1.0/' + host + '/' + port + '/dbs';
       var xhre     = new XMLHttpRequest;
       xhre.open('GET', url, false, login, password);
       xhre.send();
