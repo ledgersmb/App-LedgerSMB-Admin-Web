@@ -107,6 +107,16 @@ sub _createdb {
 }
 
 sub _backup_globals {
+    my $db = authenticate(
+              host   => param('host'), 
+              port   => param('port'),
+              dbname => 'postgres',
+    );
+    my $tmpfile = $db->backup_globals;
+    return send_file($tmpfile, system_path => 1, 
+                              content_type => 'application/octet-stream',
+                              filename     =>  'backup-globals.sql'
+                    );
 }
 
 sub _restore_globals {
