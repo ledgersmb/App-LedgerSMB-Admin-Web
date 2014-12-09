@@ -1,0 +1,36 @@
+<script src="<?lsmb request.uri_base ?>/javascripts/listing.js"
+        type="text/javascript" language="javascript"></script>
+<div id="sidebar" class="sidebar">
+<div id="newform">
+</div>
+<div id="logoutlink"><h2><a href="../logout"><?lsmb text('Logout') ?></a></h2>
+</div>
+</div>
+<div id="page" class="page">
+<div id="content">
+<div id="header">
+<h1><?lsmb text('Database List') ?></h1>
+</div>
+<div class="tabular" id="listing-container">
+<div class="row tableheading">
+   <div class="name"    id="hdrname"   ><?lsmb text('Database')      ?></div>
+   <div class="backup"  id="hdrbackup" ><?lsmb text('Backup')        ?></div>
+   <div class="restore" id="hdrrestore"><?lsmb text('Restore')       ?></div>
+   <div class="reload"  id="hdrreload" ><?lsmb text('Reload/Update') ?></div>
+</div>
+<?lsmb FOREACH db IN databases;
+   base_url="db/$db/"; ?>
+   <div class="database row" id="db-<?lsmb db ?>">
+       <div class="name"><a href="<?lsmb base_url ?>"><?lsmb db ?></a></div>
+       <div class="backup"><a class="backup" 
+                               href="<?lsmb base_url ?>/backup"></a></div>
+       <div class="restore"><input type="file" name="restore-<?lsmb db ?>"
+                               id = "restore-<?lsmb db ?>" class="restore" />
+       </div>
+       <div class="reload"><a class="reload"
+                               href="<?lsmb base_url ?>"></a></div>
+   </div>
+<?lsmb END ?>
+</div>
+</div>
+</div>
