@@ -8,7 +8,7 @@
 </div>
 <div id="scriptlink"><h2><a href="..."><?lsmb text('Run Script') ?></a></h2>
 </div>
-<div id="logoutlink"><h2><a href="../../logout"><?lsmb text('Logout') ?></a></h2>
+<div id="logoutlink"><h2><a href="/lsmbadmin/1.0/logout"><?lsmb text('Logout') ?></a></h2>
 </div>
 </div>
 <div id="content">

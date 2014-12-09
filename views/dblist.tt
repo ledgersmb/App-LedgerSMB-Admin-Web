@@ -3,7 +3,9 @@
 <div id="sidebar" class="sidebar">
 <div id="newform">
 </div>
-<div id="logoutlink"><h2><a href="../logout"><?lsmb text('Logout') ?></a></h2>
+<div id="logoutlink"><h2><a href="globals"><?lsmb text('Backup Globals') ?></a></h2>
+</div>
+<div id="logoutlink"><h2><a href="../../logout"><?lsmb text('Logout') ?></a></h2>
 </div>
 </div>
 <div id="page" class="page">
