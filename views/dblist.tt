@@ -23,7 +23,7 @@
    <div class="database row" id="db-<?lsmb db ?>">
        <div class="name"><a href="<?lsmb base_url ?>"><?lsmb db ?></a></div>
        <div class="backup"><a class="backup" 
-                               href="<?lsmb base_url ?>/backup"></a></div>
+                               href="<?lsmb base_url ?>backup"></a></div>
        <div class="restore"><input type="file" name="restore-<?lsmb db ?>"
                                id = "restore-<?lsmb db ?>" class="restore" />
        </div>
