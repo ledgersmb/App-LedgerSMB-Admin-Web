@@ -1,0 +1,19 @@
+<div id="page">
+      <script src="<?lsmb request.uri_base ?>/javascripts/logout.js" 
+        language="javascript"  type="text/javascript"></script>
+      <div id="sidebar"></div>
+      <div id="content">
+        <div id="header">
+          <h1><?lsmb text('LSMB Admin Web Console') ?></h1>
+          <h2><?lsmb 
+                  text('The Web App for Administering LedgerSMB Databases') ?>
+          </h2>
+        </div>
+        <div id="login" class="main">
+           <h1><?lsmb text('You have logged out.') ?></h1>
+           <p>
+            <a href="/lsmbadmin/1.0/"><?lsmb text('Return to login page') ?></a>
+           </p>
+        </div>
+      </div>
+</div>
