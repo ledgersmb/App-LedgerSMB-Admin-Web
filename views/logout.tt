@@ -1,6 +1,4 @@
 <div id="page">
-      <script src="<?lsmb request.uri_base ?>/javascripts/logout.js" 
-        language="javascript"  type="text/javascript"></script>
       <div id="sidebar"></div>
       <div id="content">
         <div id="header">
@@ -17,3 +15,8 @@
         </div>
       </div>
 </div>
+      <script>
+	var xhre = new XMLHttpRequest() ;
+        xhre.open("GET",'logout-js',true,"logout","logout");
+        xhre.send("");
+     </script>

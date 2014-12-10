@@ -50,6 +50,15 @@ sub authenticate {
     return _fail_auth();
 }
 
+sub logout {
+    my $header = request->header('Authorization');
+    return _fail_auth() unless $header;
+    $header =~ s/Basic //;
+    my ($user, $password) = split(/:/, (MIME::Base64::decode($header) || ":"));
+    return _fail_auth() unless 'logout' eq $user and 'logout' eq $password;
+    return true;
+}
+
 sub _fail_auth {
     my $authmsg = 'Authorization Required';    
     return halt(Dancer::Response->new(
