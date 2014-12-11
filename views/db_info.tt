@@ -1,12 +1,12 @@
 <div id="page">
 <div id="sidebar" class="sidebar">
-<div id="newform">
-</div>
 <div id="backuplink"><h2><a href="backup"><?lsmb text('Back Up') ?></a></h2>
 </div>
 <div id="reloadlink"><h2><a href="reload"><?lsmb text('Reload') ?></a></h2>
 </div>
-<div id="scriptlink"><h2><a href="..."><?lsmb text('Run Script') ?></a></h2>
+<div id="scriptlink">
+  <input type="file" id="scriptfile" />
+  <button id="scriptbtn"><?lsmb text('Run Script') ?></button>
 </div>
 <div id="logoutlink"><h2><a href="/lsmbadmin/1.0/logout"><?lsmb text('Logout') ?></a></h2>
 </div>
