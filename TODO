@@ -1,0 +1,9 @@
+For first version
+* File uploads do not yet work.
+* UI to create dbs for various versions of lsmb
+* Reload db for various versions of lsmb
+
+later versions
+* User management
+* Upload templates
+* setup wizards
